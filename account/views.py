@@ -34,7 +34,7 @@ def home_page(request):
 def registration(request):
     if request.method == "POST":
         user = RegistrationForm(request.POST)
-        print(user)
+#         print(user)
         if user.is_valid():
             messages.info(request,"Registration is successfully")
             user.save()
