@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block reg %}
+
+
+<div class="container-fluid">
+    <div class="alert alert-primary ">
+        <h2 class="text-center">
+            LogIn form
+        </h2>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="col-4 offset-4">
+        <form action="" method="post">
+            {% csrf_token %}
+                {% if form.non_field_errors %}-->
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+
+                {% for fm in form %}
+                    {{ fm.label_tag }} {{ fm }} {{ fm.errors|striptags }} <br> <br>
+                {% endfor %}
+
+            <input type="submit" value="click">
+            </form>
+    </div>
+</div>
+
+
+
+
+{% endblock reg %}

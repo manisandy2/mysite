@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block reg %}
+<div class="container-fluid">
+    <div class="alert alert-primary">
+        <h1 class="text-center">Home page</h1>
+    </div>
+</div>
+   
+
+<div class="container-fluid">
+    <div class="col-4 offset-4">
+        {% for message in messages %}
+    <li class="{{ message.tags }}">
+            {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
+    </li>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock reg %}

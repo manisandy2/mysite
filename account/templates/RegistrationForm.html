@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block reg %}
+
+
+<div class="container-fluid">
+    <div class="alert alert-primary ">
+        <h2 class="text-center">
+            Registration form
+        </h2>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="col-4 offset-4">
+        <form action="" method="post" novalidate> {% csrf_token %}
+    
+                {% if usr.non_field_errors %}-->
+                    {% for error in usr.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+
+                {% for us in usr %}
+                    {{ us.label_tag }} {{ us }} {{ us.errors|striptags }} <br>
+                {% endfor %}
+
+            <input type="submit" value="click">
+            </form>
+    </div>
+</div>
+
+{% endblock reg %}
