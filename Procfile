@@ -1,4 +1,4 @@
-web: gunicorn myweb.wsgi:application
+web: gunicorn account.wsgi:application
 
 release: python manage.py makemigrations --no-input
 release: python manage.py migrate --no-input
